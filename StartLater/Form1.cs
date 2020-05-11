@@ -19,7 +19,7 @@ namespace StartLater
 
         private static void Launch(string text)
         {
-            if(text.EndsWith(".exe") || text.StartsWith("http"))
+            if(text.Contains(".") || text.StartsWith("http"))
                 System.Diagnostics.Process.Start(text);
             else
                 System.Diagnostics.Process.Start(text + ".exe");
@@ -51,12 +51,12 @@ namespace StartLater
             if(s.Value == s.Minimum)
             {
                 s.Value = s.Maximum - 1;
-                hoursInput.Value += 1;
+                hoursInput.Value -= 1;
             }
             else if(s.Value == s.Maximum)
             {
                 s.Value = s.Minimum + 1;
-                hoursInput.Value -= 1;
+                hoursInput.Value += 1;
             }
         }
     }
